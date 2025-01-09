@@ -16,6 +16,7 @@ class DatePickerFragment : DialogFragment() {
     interface Callbacks {
         fun onDateSelected(date: Date)
     }
+
     override fun onCreateDialog(savedInstanceState: Bundle?) : Dialog {
         val dateListener =
             DatePickerDialog.OnDateSetListener { _ : DatePicker, year: Int, month: Int, day: Int ->
@@ -41,11 +42,13 @@ class DatePickerFragment : DialogFragment() {
             initialDay
         )
     }
+
     companion object {
         fun newInstance(date: Date) : DatePickerFragment {
             val args = Bundle().apply {
                 putSerializable(ARG_DATE, date)
             }
+
             return DatePickerFragment().apply {
                 arguments = args
             }
